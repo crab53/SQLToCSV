@@ -25,7 +25,6 @@ namespace SQLToCSV
             Config config = new Config();
 
             /* read config */
-            Message.Show(string.Format("Call back FTP server at {0}", DateTime.Now.ToShortTimeString()), Constants.EMessage.INFO);
             string configPath = Path.Combine(Environment.CurrentDirectory, Constants.CONFIG_FILENAME);
             config = FileFunction.LoadJsonFile<Config>(configPath);
 
