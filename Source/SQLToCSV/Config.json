@@ -1,0 +1,16 @@
+{
+  "FTP": {
+    "Host": "",
+    "User": "",
+    "Password": "",
+    "FilePath": ""
+  },
+  "SQL": {
+    "Server": "",
+    "Username": "",
+    "Password": "",
+    "Database": "",
+    "Query": ""
+  },
+  "Timer": 1.0
+}
