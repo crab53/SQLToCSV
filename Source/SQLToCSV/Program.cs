@@ -57,19 +57,22 @@ namespace SQLToCSV
 
             if (config != null)
             {
+                /* config db */
                 Database db = new Database(config);
+
+                /* config server */
                 Server server = new Server(config);
 
-                if (db.IsConnected() && server.IsConnected())
+                if (db.IsConnected() && server.IsConnected()) /* check ftp server */
                 {
                     DataTable dt = db.GetData();
                     if (dt != null)
                     {
-                        string csvText = dt.ConvertDataTableToCSVText();
-                        string localFileName = FileFunction.WriteCSVFile(csvText);
-                        bool isUploaded = server.Upload(localFileName);
+                        string csvText = dt.ConvertDataTableToCSVText(); /* get data from sql server */
+                        string localFileName = FileFunction.WriteCSVFile(csvText); /* create tmp csv file */
+                        bool isUploaded = server.Upload(localFileName); /* upload csv file to ftp server */
                         if (isUploaded)
-                            FileFunction.DeleteCSVFile(localFileName);
+                            FileFunction.DeleteCSVFile(localFileName); /* delete tmp file */
                     }
                 }
             }

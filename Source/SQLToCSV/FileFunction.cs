@@ -11,6 +11,7 @@ namespace SQLToCSV
 {
     public class FileFunction
     {
+        /* load config */
         public static T LoadJsonFile<T>(string filePath)
         {
             try
@@ -34,10 +35,12 @@ namespace SQLToCSV
             return default(T);
         }
 
+        /* create csv file */
         public static string WriteCSVFile(string csvText)
         {
             try
             {
+                /* create tmp csv file */
                 string filePath = Path.Combine(Environment.CurrentDirectory, string.Format("{0}.csv", DateTime.Now.ToString("yyyyMMddHHmmssfff")));
                 using (StreamWriter sw = File.CreateText(filePath))
                 {
@@ -49,6 +52,7 @@ namespace SQLToCSV
             return null;
         }
 
+        /* delete local csv file */
         public static bool DeleteCSVFile(string filePath)
         {
             try
