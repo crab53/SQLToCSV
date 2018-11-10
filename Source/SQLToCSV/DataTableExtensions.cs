@@ -15,11 +15,15 @@ namespace SQLToCSV
             StringBuilder sb = new StringBuilder();
 
             //write column name
-            sb.AppendLine(string.Join(",", dt.Columns.Cast<DataColumn>().Select(column => column.ColumnName).ToList()));
+            IEnumerable<string> columnNames = dt.Columns.Cast<DataColumn>().Select(column => column.ColumnName);
+            sb.AppendLine(string.Join(",", columnNames));
 
             //write data
             foreach (DataRow row in dt.Rows)
-                sb.AppendLine(string.Join(",", row.ItemArray.Select(field => field.ToString()).ToList()));
+            {
+                IEnumerable<string> fields = row.ItemArray.Select(field => string.Concat("\"", field.ToString().Replace("\"", "\"\""), "\""));
+                sb.AppendLine(string.Join(",", fields));
+            }
 
             return sb.ToString();
         }

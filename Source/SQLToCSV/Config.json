@@ -1,16 +1,17 @@
 {
   "FTP": {
-    "Host": "",
-    "User": "",
-    "Password": "",
-    "FilePath": ""
+    "Host": "cdsvn.freeddns.org",
+    "User": "ftpuser",
+    "Password": "UF@2016##",
+    "FilePath": "/FTPImages.kara"
   },
   "SQL": {
-    "Server": "",
-    "Username": "",
-    "Password": "",
-    "Database": "",
-    "Query": ""
+    "Server": ".\\SQLEXPRESS",
+    "Username": "sa",
+    "Password": "123456",
+    "Database": "Test",
+    "Query": "SELECT * FROM Account"
   },
-  "Timer": 1.0
+  "FileName": "Acc",
+  "Timer": 1
 }

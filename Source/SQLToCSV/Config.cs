@@ -11,12 +11,14 @@ namespace SQLToCSV
     {
         public FTPInfo FTP { get; set; }
         public SQLInfo SQL { get; set; }
+        public string FileName { get; set; }
         public double Timer { get; set; }
 
         public Config()
         {
             FTP = new FTPInfo();
             SQL = new SQLInfo();
+            FileName = DateTime.Now.ToString("yyyyMMddHHmmssfff");
             Timer = 1;
         }
 

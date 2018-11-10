@@ -69,7 +69,7 @@ namespace SQLToCSV
                     if (dt != null)
                     {
                         string csvText = dt.ConvertDataTableToCSVText(); /* get data from sql server */
-                        string localFileName = FileFunction.WriteCSVFile(csvText); /* create tmp csv file */
+                        string localFileName = FileFunction.WriteCSVFile(csvText, config.FileName); /* create tmp csv file */
                         bool isUploaded = server.Upload(localFileName); /* upload csv file to ftp server */
                         if (isUploaded)
                             FileFunction.DeleteCSVFile(localFileName); /* delete tmp file */
