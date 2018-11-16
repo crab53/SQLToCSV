@@ -34,6 +34,9 @@ namespace SQLToCSV
             if (config == null)
                 Message.Show("Unable to read config file.", Constants.EMessage.ERROR);
 
+            if (string.IsNullOrEmpty(config.FileName)) config.FileName = DateTime.Now.ToString("yyyyMMddHHmmssfff");
+            if (config.Timer < 0.01) config.Timer = 1;
+
             /* config success */
             Message.Show("Readed config file.", Constants.EMessage.INFO);
 
